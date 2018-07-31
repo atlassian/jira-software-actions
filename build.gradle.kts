@@ -140,7 +140,7 @@ fun MavenArtifactRepository.mavenCredentials(): Action<in PasswordCredentials>? 
 }
 
 dependencies {
-    compile("com.atlassian.performance.tools:actions:0.0.1")
+    compile("com.atlassian.performance.tools:jira-actions:0.0.1")
     compile("net.jcip:jcip-annotations:1.0")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
     compile("org.glassfish:javax.json:1.1")
