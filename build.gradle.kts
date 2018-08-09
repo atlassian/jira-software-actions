@@ -8,7 +8,7 @@ plugins {
 
 dependencies {
     compile("com.atlassian.performance.tools:jira-actions:0.0.1")
-    compile("net.jcip:jcip-annotations:1.0")
+    compile("com.github.stephenc.jcip:jcip-annotations:1.0-1")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
     compile("org.glassfish:javax.json:1.1")
     compile("org.apache.commons:commons-math3:3.6.1")
