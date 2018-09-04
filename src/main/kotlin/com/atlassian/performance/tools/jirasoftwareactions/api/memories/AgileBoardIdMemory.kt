@@ -1,4 +1,4 @@
-package com.atlassian.performance.tools.jirasoftwareactions.memories
+package com.atlassian.performance.tools.jirasoftwareactions.api.memories
 
 import com.atlassian.performance.tools.jiraactions.memories.Memory
 

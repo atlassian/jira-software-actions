@@ -1,8 +1,8 @@
-package com.atlassian.performance.tools.jirasoftwareactions
+package com.atlassian.performance.tools.jirasoftwareactions.api
 
 import com.atlassian.performance.tools.jiraactions.WebJira
-import com.atlassian.performance.tools.jirasoftwareactions.page.BrowseBoardsPage
-import com.atlassian.performance.tools.jirasoftwareactions.page.ViewBoardPage
+import com.atlassian.performance.tools.jirasoftwareactions.api.page.BrowseBoardsPage
+import com.atlassian.performance.tools.jirasoftwareactions.api.page.ViewBoardPage
 
 class WebJiraSoftware(
     private val jira: WebJira

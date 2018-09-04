@@ -1,4 +1,4 @@
-package com.atlassian.performance.tools.jirasoftwareactions.page
+package com.atlassian.performance.tools.jirasoftwareactions.api.page
 
 import com.atlassian.performance.tools.jiraactions.page.JiraErrors
 import com.atlassian.performance.tools.jiraactions.page.wait

@@ -1,4 +1,4 @@
-package com.atlassian.performance.tools.jirasoftwareactions
+package com.atlassian.performance.tools.jirasoftwareactions.api
 
 import com.atlassian.performance.tools.jiraactions.SeededRandom
 import com.atlassian.performance.tools.jiraactions.WebJira
@@ -10,9 +10,9 @@ import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveJql
 import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveProjectMemory
 import com.atlassian.performance.tools.jiraactions.scenario.Scenario
 import com.atlassian.performance.tools.jiraactions.scenario.addMultiple
-import com.atlassian.performance.tools.jirasoftwareactions.actions.BrowseBoardsAction
-import com.atlassian.performance.tools.jirasoftwareactions.actions.ViewBoardAction
-import com.atlassian.performance.tools.jirasoftwareactions.memories.AdaptiveBoardIdMemory
+import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
+import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
+import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AdaptiveBoardIdMemory
 
 class JiraSoftwareScenario : Scenario {
     /**
@@ -27,7 +27,9 @@ class JiraSoftwareScenario : Scenario {
         val jqlMemory = AdaptiveJqlMemory(seededRandom)
         val issueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
-        val agileBoardIdMemory = AdaptiveBoardIdMemory(seededRandom)
+        val agileBoardIdMemory = AdaptiveBoardIdMemory(
+            seededRandom
+        )
         val scenario: MutableList<Action> = mutableListOf()
         val createIssue = CreateIssueAction(
             jira = jira,

@@ -1,12 +1,12 @@
-package com.atlassian.performance.tools.jirasoftwareactions.actions
+package com.atlassian.performance.tools.jirasoftwareactions.api.actions
 
 import com.atlassian.performance.tools.jiraactions.IssuesOnBoard
 import com.atlassian.performance.tools.jiraactions.VIEW_BOARD
 import com.atlassian.performance.tools.jiraactions.action.Action
 import com.atlassian.performance.tools.jiraactions.measure.ActionMeter
 import com.atlassian.performance.tools.jiraactions.memories.IssueKeyMemory
-import com.atlassian.performance.tools.jirasoftwareactions.WebJiraSoftware
-import com.atlassian.performance.tools.jirasoftwareactions.memories.AgileBoardIdMemory
+import com.atlassian.performance.tools.jirasoftwareactions.api.WebJiraSoftware
+import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AgileBoardIdMemory
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
