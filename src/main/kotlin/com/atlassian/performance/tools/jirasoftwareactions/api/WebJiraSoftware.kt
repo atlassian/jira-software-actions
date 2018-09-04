@@ -1,6 +1,6 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api
 
-import com.atlassian.performance.tools.jiraactions.WebJira
+import com.atlassian.performance.tools.jiraactions.api.WebJira
 import com.atlassian.performance.tools.jirasoftwareactions.api.page.BrowseBoardsPage
 import com.atlassian.performance.tools.jirasoftwareactions.api.page.ViewBoardPage
 

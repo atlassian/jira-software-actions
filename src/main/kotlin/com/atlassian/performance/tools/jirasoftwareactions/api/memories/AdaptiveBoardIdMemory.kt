@@ -1,6 +1,6 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.memories
 
-import com.atlassian.performance.tools.jiraactions.SeededRandom
+import com.atlassian.performance.tools.jiraactions.api.SeededRandom
 
 class AdaptiveBoardIdMemory(
     private val random: SeededRandom

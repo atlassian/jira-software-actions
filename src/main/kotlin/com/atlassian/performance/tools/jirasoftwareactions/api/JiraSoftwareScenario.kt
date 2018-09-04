@@ -1,15 +1,15 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api
 
-import com.atlassian.performance.tools.jiraactions.SeededRandom
-import com.atlassian.performance.tools.jiraactions.WebJira
-import com.atlassian.performance.tools.jiraactions.action.*
-import com.atlassian.performance.tools.jiraactions.measure.ActionMeter
-import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveIssueKeyMemory
-import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveIssueMemory
-import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveJqlMemory
-import com.atlassian.performance.tools.jiraactions.memories.adaptive.AdaptiveProjectMemory
-import com.atlassian.performance.tools.jiraactions.scenario.Scenario
-import com.atlassian.performance.tools.jiraactions.scenario.addMultiple
+import com.atlassian.performance.tools.jiraactions.api.SeededRandom
+import com.atlassian.performance.tools.jiraactions.api.WebJira
+import com.atlassian.performance.tools.jiraactions.api.action.*
+import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveIssueKeyMemory
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveIssueMemory
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveJqlMemory
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveProjectMemory
+import com.atlassian.performance.tools.jiraactions.api.scenario.Scenario
+import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AdaptiveBoardIdMemory

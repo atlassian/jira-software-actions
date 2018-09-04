@@ -28,7 +28,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 
 ### Changed
 - Define public API for the module.
--
+- Consume stable API of `jira-actions`
 
 ### Fixed
 - Add this changelog.

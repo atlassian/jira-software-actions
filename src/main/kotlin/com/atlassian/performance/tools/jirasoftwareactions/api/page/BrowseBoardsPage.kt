@@ -1,7 +1,7 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.page
 
-import com.atlassian.performance.tools.jiraactions.page.JiraErrors
-import com.atlassian.performance.tools.jiraactions.page.wait
+import com.atlassian.performance.tools.jiraactions.api.page.JiraErrors
+import com.atlassian.performance.tools.jiraactions.api.page.wait
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.ExpectedConditions

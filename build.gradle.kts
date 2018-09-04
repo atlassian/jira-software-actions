@@ -18,7 +18,7 @@ configurations.all {
 }
 
 dependencies {
-    api("com.atlassian.performance.tools:jira-actions:0.0.1")
+    api("com.atlassian.performance.tools:jira-actions:[2.1.0,3.0.0)")
     api("com.github.stephenc.jcip:jcip-annotations:1.0-1")
     api(webdriver("selenium-api"))
 

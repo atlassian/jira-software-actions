@@ -1,6 +1,6 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.page
 
-import com.atlassian.performance.tools.jiraactions.page.wait
+import com.atlassian.performance.tools.jiraactions.api.page.wait
 import org.openqa.selenium.By.className
 import org.openqa.selenium.By.cssSelector
 import org.openqa.selenium.WebDriver

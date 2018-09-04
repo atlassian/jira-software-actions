@@ -1,8 +1,8 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.actions
 
-import com.atlassian.performance.tools.jiraactions.BROWSE_BOARDS
-import com.atlassian.performance.tools.jiraactions.action.Action
-import com.atlassian.performance.tools.jiraactions.measure.ActionMeter
+import com.atlassian.performance.tools.jiraactions.api.BROWSE_BOARDS
+import com.atlassian.performance.tools.jiraactions.api.action.Action
+import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
 import com.atlassian.performance.tools.jirasoftwareactions.api.WebJiraSoftware
 import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AgileBoardIdMemory
 import net.jcip.annotations.NotThreadSafe
