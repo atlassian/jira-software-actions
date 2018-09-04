@@ -18,11 +18,17 @@ The API covers all public Java types from `com.atlassian.performance.tools.jiras
 [binary compatibility]: http://cr.openjdk.java.net/~darcy/OpenJdkDevGuide/OpenJdkDevelopersGuide.v0.777.html#binary_compatibility
 [behavioral compatibility]: http://cr.openjdk.java.net/~darcy/OpenJdkDevGuide/OpenJdkDevelopersGuide.v0.777.html#behavioral_compatibility
 
+### POM
+Changing the license is breaking a contract.
+Adding a requirement of a major version of a dependency is breaking a contract.
+Dropping a requirement of a major version of a dependency is a new contract.
+
 ## [Unreleased]
 [Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-0.1.1
 
 ### Changed
 - Define public API for the module.
+-
 
 ### Fixed
 - Add this changelog.
