@@ -1,6 +1,13 @@
-## Jira software coverage
+# Jira software coverage
 
 This module defines Jira Software Virtual Users coverage
+
+## Jira Software actions
+
+Action              | Activity              |
+------------------- | ----------------------
+View Board          | Go to Board → Wait for Board to display columns
+Browse Boards       | Go to Browse Boards Page → Wait for the board list to load
 
 ## Reporting issues
 
