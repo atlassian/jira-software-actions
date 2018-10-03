@@ -26,6 +26,11 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.0.0
 
+### Fixed
+- Decrease log level for actions complaining about skipping run, which resolves [JPERF-162].
+
+[JPERF-162]: https://ecosystem.atlassian.net/browse/JPERF-162
+
 ## [1.0.0] - 2018-09-04
 [1.0.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.0.0%0Drelease-0.1.1
 

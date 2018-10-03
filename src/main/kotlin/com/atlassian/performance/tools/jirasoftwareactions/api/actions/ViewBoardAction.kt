@@ -21,7 +21,7 @@ class ViewBoardAction(
     override fun run() {
         val id = boardIdMemory.recall()
         if (id == null) {
-            logger.info("Skipping View Board. I have no knowledge of Boards.")
+            logger.debug("Skipping View Board. I have no knowledge of Boards.")
         } else {
             meter.measure(
                 key = VIEW_BOARD,
