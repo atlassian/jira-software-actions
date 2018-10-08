@@ -26,6 +26,9 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.0.0
 
+### Added
+- New action that visits backlog of Scrum boards
+
 ### Fixed
 - Decrease log level for actions complaining about skipping run, which resolves [JPERF-162].
 

@@ -29,4 +29,10 @@ class BrowseBoardsPage(
     fun getBoardIds(): Collection<String> =
         driver.findElements(By.cssSelector(".boards-list tr"))
             .map { it.getAttribute("data-board-id") }
+
+    fun getScrumBoardIds(): Collection<String> {
+        driver.findElement(By.cssSelector("#ghx-manage-boards-filter a")).click()
+        driver.findElement(By.className("type-filter-scrum")).click()
+        return getBoardIds()
+    }
 }

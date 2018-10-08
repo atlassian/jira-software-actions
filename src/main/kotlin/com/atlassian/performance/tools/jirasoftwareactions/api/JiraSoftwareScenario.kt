@@ -11,6 +11,7 @@ import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.Adaptiv
 import com.atlassian.performance.tools.jiraactions.api.scenario.Scenario
 import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
+import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBacklogAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AdaptiveBoardIdMemory
 
@@ -27,9 +28,8 @@ class JiraSoftwareScenario : Scenario {
         val jqlMemory = AdaptiveJqlMemory(seededRandom)
         val issueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
-        val agileBoardIdMemory = AdaptiveBoardIdMemory(
-            seededRandom
-        )
+        val agileBoardIdMemory = AdaptiveBoardIdMemory(seededRandom)
+        val scrumBoardIdMemory = AdaptiveBoardIdMemory(seededRandom)
         val scenario: MutableList<Action> = mutableListOf()
         val createIssue = CreateIssueAction(
             jira = jira,
@@ -76,17 +76,27 @@ class JiraSoftwareScenario : Scenario {
         )
 
         val jiraSoftware = WebJiraSoftware(jira)
+
         val viewBoard = ViewBoardAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
             boardIdMemory = agileBoardIdMemory,
             issueKeyMemory = issueKeyMemory
         )
+
         val browseBoards = BrowseBoardsAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
-            boardsMemory = agileBoardIdMemory
+            boardsMemory = agileBoardIdMemory,
+            scrumBoardsMemory = scrumBoardIdMemory
         )
+
+        val viewBacklog = ViewBacklogAction(
+            jiraSoftware = jiraSoftware,
+            meter = meter,
+            boardIdMemory = scrumBoardIdMemory
+        )
+
         val actionProportions = mapOf(
             createIssue to 5,
             searchWithJql to 20,
@@ -97,6 +107,7 @@ class JiraSoftwareScenario : Scenario {
             addComment to 2,
             browseProjects to 5,
             viewBoard to 10,
+            viewBacklog to 10,
             browseBoards to 2
         )
         actionProportions.entries.forEach { scenario.addMultiple(element = it.key, repeats = it.value) }

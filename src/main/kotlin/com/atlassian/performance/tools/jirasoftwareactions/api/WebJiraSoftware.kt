@@ -2,6 +2,7 @@ package com.atlassian.performance.tools.jirasoftwareactions.api
 
 import com.atlassian.performance.tools.jiraactions.api.WebJira
 import com.atlassian.performance.tools.jirasoftwareactions.api.page.BrowseBoardsPage
+import com.atlassian.performance.tools.jirasoftwareactions.api.page.ViewBacklogPage
 import com.atlassian.performance.tools.jirasoftwareactions.api.page.ViewBoardPage
 
 class WebJiraSoftware(
@@ -17,5 +18,10 @@ class WebJiraSoftware(
     fun goToBrowseBoards(): BrowseBoardsPage {
         jira.navigateTo("secure/ManageRapidViews.jspa")
         return BrowseBoardsPage(jira.driver)
+    }
+
+    fun goToBacklog(boardId: String): ViewBacklogPage {
+        jira.navigateTo("secure/RapidBoard.jspa?rapidView=$boardId&view=planning")
+        return ViewBacklogPage(jira.driver)
     }
 }
