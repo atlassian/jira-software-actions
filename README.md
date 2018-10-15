@@ -7,6 +7,7 @@ This module defines Jira Software Virtual Users coverage
 Action              | Activity              |
 ------------------- | ----------------------
 View Board          | Go to Board → Wait for Board to display columns
+View Backlog        | Go to Backlog → Wait for the backlog issue list
 Browse Boards       | Go to Browse Boards Page → Wait for the board list to load
 
 ## Jira Software scenario
@@ -17,19 +18,17 @@ to read about Jira Core actions. For each VU these actions are shuffled in a spe
 
 Action              | Composition              |
 ------------------- | ----------------------
-Create Issue        | 4.2% (5/119)
-Create Issue Submit | 4.2% (5/119)
-Search with JQL     | 16.8% (20/119)
-View Issue          | 46.2% (55/119)
-Project Summary     | 4.2% (5/119)
-View Dashboard      | 8.4% (10/119)
-Edit Issue          | 4.2% (5/119)
-Edit Issue Submit   | 4.2% (5/119)
-Add Comment         | 1.6% (2/119)
-Add Comment Submit  | 1.6% (2/119)
-Browse Projects     | 4.2% (5/119)
-View Board          | 8.4% (10/119)
-Browse Boards       | 1.6% (2/119)
+Create Issue        | 3.9% (5/129)
+Search with JQL     | 15.5% (20/129)
+View Issue          | 42.6% (55/129)
+Project Summary     | 3.9% (5/129)
+View Dashboard      | 7.8% (10/129)
+Edit Issue          | 3.9% (5/129)
+Add Comment         | 1.6% (2/129)
+Browse Projects     | 3.9% (5/129)
+View Board          | 7.8% (10/129)
+View Backlog        | 7.8% (10/129)
+Browse Boards       | 1.6% (2/129)
 
 ## Reporting issues
 
