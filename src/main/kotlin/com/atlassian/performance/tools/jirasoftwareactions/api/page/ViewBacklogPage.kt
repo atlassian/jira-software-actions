@@ -18,6 +18,5 @@ class ViewBacklogPage(
         return driver
             .findElements(By.className("js-issue"))
             .map { it.getAttribute("data-issue-key") }
-
     }
 }

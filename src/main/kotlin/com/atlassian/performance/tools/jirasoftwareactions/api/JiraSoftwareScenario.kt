@@ -13,7 +13,9 @@ import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBacklogAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
-import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AdaptiveBoardIdMemory
+import com.atlassian.performance.tools.jirasoftwareactions.api.boards.Board
+import com.atlassian.performance.tools.jirasoftwareactions.api.boards.ScrumBoard
+import com.atlassian.performance.tools.jirasoftwareactions.api.memories.NonEmptyBoardMemory
 
 class JiraSoftwareScenario : Scenario {
     /**
@@ -28,8 +30,8 @@ class JiraSoftwareScenario : Scenario {
         val jqlMemory = AdaptiveJqlMemory(seededRandom)
         val issueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
-        val agileBoardIdMemory = AdaptiveBoardIdMemory(seededRandom)
-        val scrumBoardIdMemory = AdaptiveBoardIdMemory(seededRandom)
+        val agileBoardMemory = NonEmptyBoardMemory<Board>(seededRandom)
+        val scrumBoardMemory = NonEmptyBoardMemory<ScrumBoard>(seededRandom)
         val scenario: MutableList<Action> = mutableListOf()
         val createIssue = CreateIssueAction(
             jira = jira,
@@ -76,27 +78,23 @@ class JiraSoftwareScenario : Scenario {
         )
 
         val jiraSoftware = WebJiraSoftware(jira)
-
         val viewBoard = ViewBoardAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
-            boardIdMemory = agileBoardIdMemory,
+            boardMemory = agileBoardMemory,
             issueKeyMemory = issueKeyMemory
         )
-
         val browseBoards = BrowseBoardsAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
-            boardsMemory = agileBoardIdMemory,
-            scrumBoardsMemory = scrumBoardIdMemory
+            boardsMemory = agileBoardMemory,
+            scrumBoardsMemory = scrumBoardMemory
         )
-
         val viewBacklog = ViewBacklogAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
-            boardIdMemory = scrumBoardIdMemory
+            boardMemory = scrumBoardMemory
         )
-
         val actionProportions = mapOf(
             createIssue to 5,
             searchWithJql to 20,
