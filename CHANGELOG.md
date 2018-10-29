@@ -24,14 +24,25 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.1.0
+[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.2.0
+
+## [1.2.0] - 2018-10-29
+[1.2.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.2.0%0Drelease-1.1.0
 
 ### Added
-- New Board class
-- Memory for boards
+- Let virtual users memorize more details about boards:
+  - is it a scrum board?
+  - how many issues does it display?
+  - how many issues are in the backlog?
+- Let virtual users avoid empty boards. Resolve [JPERF-211].
+
+### Fixed
+- Avoid empty boards in the `JiraSoftwareScenario`.
 
 ### Deprecated
-- AgileBoardIdMemory
+- Deprecate `AgileBoardIdMemory` in favor of `Memory<Board>`.
+
+[JPERF-211]: https://ecosystem.atlassian.net/browse/JPERF-211
 
 ## [1.1.0] - 2018-10-15
 [1.1.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.1.0%0Drelease-1.0.0
