@@ -13,9 +13,9 @@ import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBacklogAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
-import com.atlassian.performance.tools.jirasoftwareactions.api.boards.Board
+import com.atlassian.performance.tools.jirasoftwareactions.api.boards.AgileBoard
 import com.atlassian.performance.tools.jirasoftwareactions.api.boards.ScrumBoard
-import com.atlassian.performance.tools.jirasoftwareactions.api.memories.NonEmptyBoardMemory
+import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AdaptiveBoardMemory
 
 class JiraSoftwareScenario : Scenario {
     /**
@@ -30,8 +30,8 @@ class JiraSoftwareScenario : Scenario {
         val jqlMemory = AdaptiveJqlMemory(seededRandom)
         val issueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
-        val agileBoardMemory = NonEmptyBoardMemory<Board>(seededRandom)
-        val scrumBoardMemory = NonEmptyBoardMemory<ScrumBoard>(seededRandom)
+        val agileBoardMemory = AdaptiveBoardMemory<AgileBoard>(seededRandom)
+        val scrumBoardMemory = AdaptiveBoardMemory<ScrumBoard>(seededRandom)
         val scenario: MutableList<Action> = mutableListOf()
         val createIssue = CreateIssueAction(
             jira = jira,
@@ -83,7 +83,7 @@ class JiraSoftwareScenario : Scenario {
             meter = meter,
             boardMemory = agileBoardMemory,
             issueKeyMemory = issueKeyMemory
-        )
+        ) { it.issuesOnBoard != 0 }
         val browseBoards = BrowseBoardsAction(
             jiraSoftware = jiraSoftware,
             meter = meter,
@@ -94,7 +94,7 @@ class JiraSoftwareScenario : Scenario {
             jiraSoftware = jiraSoftware,
             meter = meter,
             boardMemory = scrumBoardMemory
-        )
+        ) { it.issuesInBacklog != 0 }
         val actionProportions = mapOf(
             createIssue to 5,
             searchWithJql to 20,

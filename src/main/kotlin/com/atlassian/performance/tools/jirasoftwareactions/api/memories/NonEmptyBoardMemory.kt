@@ -7,6 +7,8 @@ import com.atlassian.performance.tools.jirasoftwareactions.api.boards.Board
 /**
  * This memory supports only non-empty boards and boards with an unknown number of issues.
  */
+
+@Deprecated(message = "Use ViewBoardAction.filter")
 class NonEmptyBoardMemory<T : Board>(
     private val random: SeededRandom
 ) : Memory<T> {
@@ -21,9 +23,11 @@ class NonEmptyBoardMemory<T : Board>(
     }
 
     private fun add(board: T) {
-        if (board.isWorthVisiting() && !boards.add(board)) {
-            boards.remove(board)
-            boards.add(board)
+        if (board.isWorthVisiting()) {
+            if (!boards.add(board)) {
+                boards.remove(board)
+                boards.add(board)
+            }
         } else if (boards.contains(board)) {
             boards.remove(board)
         }

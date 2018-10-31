@@ -8,7 +8,7 @@ package com.atlassian.performance.tools.jirasoftwareactions.api.boards
  */
 data class AgileBoard(
     override val id: String,
-    override val issuesOnBoard: Int?
+    override var issuesOnBoard: Int?
 ) : Board {
 
     constructor(

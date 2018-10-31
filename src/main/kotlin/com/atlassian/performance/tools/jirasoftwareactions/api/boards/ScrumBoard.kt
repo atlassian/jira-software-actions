@@ -2,8 +2,8 @@ package com.atlassian.performance.tools.jirasoftwareactions.api.boards
 
 class ScrumBoard(
     override val id: String,
-    override val issuesOnBoard: Int?,
-    val issuesInBacklog: Int?
+    override var issuesOnBoard: Int?,
+    var issuesInBacklog: Int?
 ) : Board {
     constructor(
         id: String

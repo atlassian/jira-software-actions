@@ -3,19 +3,20 @@ package com.atlassian.performance.tools.jirasoftwareactions.api.actions
 import com.atlassian.performance.tools.jiraactions.api.ActionType
 import com.atlassian.performance.tools.jiraactions.api.action.Action
 import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
-import com.atlassian.performance.tools.jiraactions.api.memories.Memory
 import com.atlassian.performance.tools.jiraactions.api.observation.IssuesOnBoard
 import com.atlassian.performance.tools.jirasoftwareactions.CompatibleScrumBoardMemory
 import com.atlassian.performance.tools.jirasoftwareactions.api.WebJiraSoftware
 import com.atlassian.performance.tools.jirasoftwareactions.api.boards.ScrumBoard
 import com.atlassian.performance.tools.jirasoftwareactions.api.memories.AgileBoardIdMemory
+import com.atlassian.performance.tools.jirasoftwareactions.api.memories.BoardMemory
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
 class ViewBacklogAction(
     private val jiraSoftware: WebJiraSoftware,
     private val meter: ActionMeter,
-    private val boardMemory: Memory<ScrumBoard>
+    private val boardMemory: BoardMemory<ScrumBoard>,
+    private val filter: (ScrumBoard) -> Boolean
 ) : Action {
     companion object {
         @JvmField
@@ -27,15 +28,27 @@ class ViewBacklogAction(
     constructor(
         jiraSoftware: WebJiraSoftware,
         meter: ActionMeter,
+        boardMemory: BoardMemory<ScrumBoard>
+    ) : this(
+        jiraSoftware = jiraSoftware,
+        meter = meter,
+        boardMemory = boardMemory,
+        filter = { true }
+    )
+
+    constructor(
+        jiraSoftware: WebJiraSoftware,
+        meter: ActionMeter,
         boardIdMemory: AgileBoardIdMemory
     ) : this(
         jiraSoftware = jiraSoftware,
         meter = meter,
-        boardMemory = CompatibleScrumBoardMemory(boardIdMemory)
+        boardMemory = CompatibleScrumBoardMemory(boardIdMemory),
+        filter = { true }
     )
 
     override fun run() {
-        val board = boardMemory.recall()
+        val board = boardMemory.recall(filter)
 
         if (board == null) {
             logger.debug("Skipping View Backlog. I have no knowledge of Boards.")
@@ -49,11 +62,7 @@ class ViewBacklogAction(
                 },
                 observation = { backlogBoard ->
                     val issueKeys = backlogBoard.getIssueKeys()
-                    boardMemory.remember(listOf(ScrumBoard(
-                        id = board.id,
-                        issuesOnBoard = board.issuesOnBoard,
-                        issuesInBacklog = issueKeys.size
-                    )))
+                    board.issuesInBacklog = issueKeys.size
                     IssuesOnBoard(issues = issueKeys.size).serialize()
                 }
             )

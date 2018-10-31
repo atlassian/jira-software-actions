@@ -26,6 +26,13 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.2.0
 
+### Added
+- Let virtual users use their own filter predicates instead of the built-in `isWorthVisiting` method
+
+### Deprecated
+- Deprecate `NonEmptyBoardMemory` 
+- Deprecate `isWorthVisiting` method in the `Board`
+
 ## [1.2.0] - 2018-10-29
 [1.2.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.2.0%0Drelease-1.1.0
 

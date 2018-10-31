@@ -3,12 +3,11 @@ package com.atlassian.performance.tools.jirasoftwareactions.api.memories
 import com.atlassian.performance.tools.jiraactions.api.memories.Memory
 
 @Deprecated(
-    message = "Use Memory<Board>",
+    message = "Use BoardMemory",
     replaceWith = ReplaceWith(
-        expression = "Memory<Board>",
+        expression = "BoardMemory",
         imports = [
-            "com.atlassian.performance.tools.jiraactions.api.memories.Memory",
-            "com.atlassian.performance.tools.jirasoftwareactions.api.boards.Board"
+            "com.atlassian.performance.tools.jirasoftwareactions.api.memories.BoardMemory"
         ]
     )
 )
