@@ -24,7 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.2.0
+[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.3.0
+
+## [1.3.0] - 2018-11-14
+[1.3.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.3.0%0Drelease-1.2.0
 
 ### Added
 - Let virtual users use their own filter predicates instead of the built-in `isWorthVisiting` method
