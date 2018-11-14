@@ -28,6 +28,10 @@ Dropping a requirement of a major version of a dependency is a new contract.
 
 ### Added
 - Let virtual users use their own filter predicates instead of the built-in `isWorthVisiting` method
+- Make the module `jira-actions` 3.x compatibile. Unlocks [JPERF-127] and [JPERF-150]
+
+[JPERF-127]: https://ecosystem.atlassian.net/browse/JPERF-127
+[JPERF-150]: https://ecosystem.atlassian.net/browse/JPERF-150
 
 ### Deprecated
 - Deprecate `NonEmptyBoardMemory` 
