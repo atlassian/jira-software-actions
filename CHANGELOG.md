@@ -24,10 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.3.1
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.1...master
 
 ## [1.3.1] - 2019-02-25
-[1.3.1]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.3.1%0Drelease-1.3.0
+[1.3.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.0...release-1.3.1
 
 ### Fixed 
 - Stop returning null board Id values from BrowseBoardsPage#getBoardIds. Resolve [JPERF-279].
@@ -35,7 +35,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [JPERF-279]: https://ecosystem.atlassian.net/browse/JPERF-279
 
 ## [1.3.0] - 2018-11-14
-[1.3.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.3.0%0Drelease-1.2.0
+[1.3.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.2.0...release-1.3.0
 
 ### Added
 - Let virtual users use their own filter predicates instead of the built-in `isWorthVisiting` method
@@ -49,7 +49,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 - Deprecate `isWorthVisiting` method in the `Board`
 
 ## [1.2.0] - 2018-10-29
-[1.2.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.2.0%0Drelease-1.1.0
+[1.2.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.1.0...release-1.2.0
 
 ### Added
 - Let virtual users memorize more details about boards:
@@ -67,7 +67,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [JPERF-211]: https://ecosystem.atlassian.net/browse/JPERF-211
 
 ## [1.1.0] - 2018-10-15
-[1.1.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.1.0%0Drelease-1.0.0
+[1.1.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.0.0...release-1.1.0
 
 ### Added
 - New action that visits backlog of Scrum boards
@@ -78,7 +78,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [JPERF-162]: https://ecosystem.atlassian.net/browse/JPERF-162
 
 ## [1.0.0] - 2018-09-04
-[1.0.0]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.0.0%0Drelease-0.1.1
+[1.0.0]: https://github.com/atlassian/jira-software-actions/compare/release-0.1.1...release-1.0.0
 
 ### Changed
 - Define public API for the module.
