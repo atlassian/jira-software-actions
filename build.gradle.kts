@@ -3,7 +3,7 @@ val kotlinVersion = "1.2.70"
 plugins {
     kotlin("jvm").version("1.2.70")
     `java-library`
-    id("com.atlassian.performance.tools.gradle-release").version("0.4.3")
+    id("com.atlassian.performance.tools.gradle-release").version("0.5.0")
 }
 
 configurations.all {
@@ -48,6 +48,7 @@ fun log4j(
 
 fun webdriver(module: String): String = "org.seleniumhq.selenium:$module:3.11.0"
 
-val wrapper = tasks["wrapper"] as Wrapper
-wrapper.gradleVersion = "4.9"
-wrapper.distributionType = Wrapper.DistributionType.ALL
+tasks.getByName("wrapper", Wrapper::class).apply {
+    gradleVersion = "5.2.1"
+    distributionType = Wrapper.DistributionType.ALL
+}

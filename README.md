@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/atlassian/jira-software-actions.svg?branch=master)](https://travis-ci.com/atlassian/jira-software-actions)
+
 # Jira software coverage
 
 This module defines Jira Software Virtual Users coverage
