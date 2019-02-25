@@ -24,7 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.3.0
+[Unreleased]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/master%0Drelease-1.3.1
+
+## [1.3.1] - 2019-02-25
+[1.3.1]: https://bitbucket.org/atlassian/jira-software-actions/branches/compare/release-1.3.1%0Drelease-1.3.0
 
 ### Fixed 
 - Stop returning null board Id values from BrowseBoardsPage#getBoardIds. Resolve [JPERF-279].
