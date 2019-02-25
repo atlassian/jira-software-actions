@@ -24,6 +24,7 @@ org.apache.logging.log4j:log4j-api:2.10.0
 org.apache.logging.log4j:log4j-core:2.10.0
 org.apache.logging.log4j:log4j-jul:2.10.0
 org.apache.logging.log4j:log4j-slf4j-impl:2.10.0
+org.assertj:assertj-core:3.11.1
 org.checkerframework:checker-compat-qual:2.0.0
 org.codehaus.mojo:animal-sniffer-annotations:1.14
 org.glassfish:javax.json:1.1
