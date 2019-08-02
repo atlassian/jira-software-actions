@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement
 import java.lang.Exception
 
 internal class DriverMock(
-    private val mappings: Map<By, List<WebElement>>
+    val mappings: MutableMap<By, List<WebElement>>
 ) : WebDriver {
 
     override fun getCurrentUrl(): String {
@@ -45,8 +45,8 @@ internal class DriverMock(
         throw Exception("unexpected call")
     }
 
-    override fun findElement(p0: By?): WebElement {
-        throw Exception("unexpected call")
+    override fun findElement(by: By): WebElement {
+        return findElements(by).single()
     }
 
     override fun getWindowHandles(): MutableSet<String> {
