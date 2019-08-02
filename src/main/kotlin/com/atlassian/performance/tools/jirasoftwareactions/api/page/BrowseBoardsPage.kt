@@ -32,8 +32,18 @@ class BrowseBoardsPage(
             .filterNotNull()
 
     fun getScrumBoardIds(): Collection<String> {
+        val boardsBeforeFiltering = driver.findElements(By.cssSelector(".boards-list tr"))
+        if (boardsBeforeFiltering.isEmpty()) {
+            return emptyList()
+        }
         driver.findElement(By.cssSelector("#ghx-manage-boards-filter a")).click()
         driver.findElement(By.className("type-filter-scrum")).click()
+        driver.wait(
+            Duration.ofSeconds(1),
+            ExpectedConditions.and(
+                *boardsBeforeFiltering.map { ExpectedConditions.stalenessOf(it) }.toTypedArray()
+            )
+        )
         return getBoardIds()
     }
 }
