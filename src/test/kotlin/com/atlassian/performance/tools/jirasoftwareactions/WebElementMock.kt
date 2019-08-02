@@ -2,7 +2,7 @@ package com.atlassian.performance.tools.jirasoftwareactions
 
 import org.openqa.selenium.*
 
-class WebElementMock(
+internal open class WebElementMock(
     private val attributes: Map<String?, String?>
 ) : WebElement {
     override fun isDisplayed(): Boolean {
