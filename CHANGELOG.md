@@ -26,6 +26,11 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.1...master
 
+### Fixed 
+- Fix flakiness while filtering boards by type. Resolve [JPERF-548].
+
+[JPERF-548]: https://ecosystem.atlassian.net/browse/JPERF-548
+
 ## [1.3.1] - 2019-02-25
 [1.3.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.0...release-1.3.1
 
