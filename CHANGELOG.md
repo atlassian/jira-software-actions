@@ -25,6 +25,8 @@ Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.2...master
+### Changed
+- reduced the overhead of handling large boards and backlogs
 
 ## [1.3.2] - 2019-08-02
 [1.3.2]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.1...release-1.3.2
