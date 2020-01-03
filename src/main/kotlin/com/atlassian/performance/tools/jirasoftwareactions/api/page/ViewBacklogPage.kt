@@ -1,9 +1,10 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.page
 
 import com.atlassian.performance.tools.jiraactions.api.page.wait
+import com.atlassian.performance.tools.jirasoftwareactions.webdriver.JavaScriptUtils
 import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 import java.time.Duration
 
 class ViewBacklogPage(
@@ -15,8 +16,8 @@ class ViewBacklogPage(
     )
 
     fun getIssueKeys(): List<String> {
-        return driver
-            .findElements(By.className("js-issue"))
-            .map { it.getAttribute("data-issue-key") }
+        return JavaScriptUtils.executeScript(driver,
+            "return Array.from(document.getElementsByClassName('js-issue'), i => i.getAttribute('data-issue-key'))"
+        )
     }
 }
