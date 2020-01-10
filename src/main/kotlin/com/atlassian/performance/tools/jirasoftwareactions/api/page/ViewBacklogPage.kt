@@ -12,7 +12,8 @@ class ViewBacklogPage(
 ) {
     fun waitForBacklog() = driver.wait(
         Duration.ofSeconds(30),
-        presenceOfElementLocated(By.cssSelector("#ghx-backlog[data-rendered]:not(.browser-metrics-stale)"))
+        presenceOfElementLocated(By.cssSelector("#ghx-backlog[data-rendered]:not(.browser-metrics-stale)")),
+        Duration.ofMillis(100)
     )
 
     fun getIssueKeys(): List<String> {
