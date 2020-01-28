@@ -1,4 +1,5 @@
 val kotlinVersion = "1.2.70"
+val seleniumVersion = "3.141.59"
 
 plugins {
     kotlin("jvm").version("1.2.70")
@@ -16,6 +17,7 @@ configurations.all {
             }
             when (requested.group) {
                 "org.jetbrains.kotlin" -> useVersion(kotlinVersion)
+                "org.seleniumhq.selenium" -> useVersion(seleniumVersion)
             }
         }
     }
@@ -46,7 +48,7 @@ fun log4j(
     "org.apache.logging.log4j:log4j-$module:2.10.0"
 }
 
-fun webdriver(module: String): String = "org.seleniumhq.selenium:$module:3.11.0"
+fun webdriver(module: String): String = "org.seleniumhq.selenium:$module:$seleniumVersion"
 
 tasks.getByName("wrapper", Wrapper::class).apply {
     gradleVersion = "5.2.1"
