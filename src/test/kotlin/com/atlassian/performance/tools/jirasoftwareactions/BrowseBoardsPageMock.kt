@@ -47,12 +47,11 @@ internal class BrowseBoardsPageMock {
 
     private fun filterScrumBoards() {
         initialBoards.last().isStale = true
+        driver.setExecuteScriptReturnValue(false)
         Timer().schedule(
             object : TimerTask() {
                 override fun run() {
-                    for (staleElementMock in initialBoards) {
-                        staleElementMock.isStale = true
-                    }
+                    driver.setExecuteScriptReturnValue(true)
                     driver.mappings[By.cssSelector(".boards-list tr")] = listOf(WebElementMock(mapOf("data-board-id" to "1")))
                 }
             },

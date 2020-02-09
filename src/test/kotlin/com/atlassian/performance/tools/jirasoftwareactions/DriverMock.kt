@@ -1,13 +1,16 @@
 package com.atlassian.performance.tools.jirasoftwareactions
 
 import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
-import java.lang.Exception
 
 internal class DriverMock(
     val mappings: MutableMap<By, List<WebElement>>
-) : WebDriver {
+) : WebDriver, JavascriptExecutor {
+
+    @Volatile
+    private var executeScriptReturnValue: Any? = null
 
     override fun getCurrentUrl(): String {
         return "http://some.url/"
@@ -59,5 +62,17 @@ internal class DriverMock(
 
     override fun getTitle(): String {
         throw Exception("unexpected call")
+    }
+
+    override fun executeScript(p0: String?, vararg p1: Any?): Any? {
+        return executeScriptReturnValue
+    }
+
+    override fun executeAsyncScript(p0: String?, vararg p1: Any?): Any {
+        throw RuntimeException("not implemented")
+    }
+    
+    fun setExecuteScriptReturnValue(value: Any?) {
+        executeScriptReturnValue = value
     }
 }

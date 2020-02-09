@@ -28,8 +28,7 @@ class BrowseBoardsPage(
 
     fun getBoardIds(): Collection<String> =
         driver.findElements(By.cssSelector(".boards-list tr"))
-            .map { it.getAttribute("data-board-id") }
-            .filterNotNull()
+            .mapNotNull { it.getAttribute("data-board-id") }
 
     fun getScrumBoardIds(): Collection<String> {
         val boardsBeforeFiltering = driver.findElements(By.cssSelector(".boards-list tr"))
@@ -37,13 +36,18 @@ class BrowseBoardsPage(
             return emptyList()
         }
         driver.findElement(By.cssSelector("#ghx-manage-boards-filter a")).click()
-        driver.findElement(By.className("type-filter-scrum")).click()
         driver.wait(
-            Duration.ofSeconds(1),
-            ExpectedConditions.and(
-                *boardsBeforeFiltering.map { ExpectedConditions.stalenessOf(it) }.toTypedArray()
-            )
-        )
+            Duration.ofSeconds(5),
+            ExpectedConditions.elementToBeClickable(driver.findElement(By.className("type-filter-scrum")))
+        ).click()
+
+        val onlyScrumBoardsVisible = ExpectedConditions.jsReturnsValue(
+            """
+    let boardTypes = new Set(Array.from(document.querySelectorAll('.boards-list tr')).map( row => row.getElementsByTagName('td')[1].innerText))
+    return boardTypes.size == 0 || boardTypes.size == 1 && boardTypes.has('Scrum')
+            """.trimIndent())
+
+        driver.wait(Duration.ofSeconds(10), onlyScrumBoardsVisible)
         return getBoardIds()
     }
 }
