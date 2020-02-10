@@ -14,10 +14,12 @@ configurations.all {
         eachDependency {
             when (requested.module.toString()) {
                 "commons-codec:commons-codec" -> useVersion("1.10")
+                "org.jetbrains:annotations" -> useVersion("16.0.3")
             }
             when (requested.group) {
                 "org.jetbrains.kotlin" -> useVersion(kotlinVersion)
                 "org.seleniumhq.selenium" -> useVersion(seleniumVersion)
+                "org.slf4j" -> useVersion("1.7.25")
             }
         }
     }
@@ -38,6 +40,7 @@ dependencies {
         "core",
         "slf4j-impl"
     ).forEach { implementation(it) }
+    testCompile("com.atlassian.performance.tools:docker-infrastructure:0.3.2")
     testCompile("junit:junit:4.12")
     testCompile("org.assertj:assertj-core:3.11.1")
 }
@@ -54,3 +57,19 @@ tasks.getByName("wrapper", Wrapper::class).apply {
     gradleVersion = "5.2.1"
     distributionType = Wrapper.DistributionType.ALL
 }
+
+tasks.getByName("test", Test::class).apply {
+    exclude("**/*IT.class")
+}
+
+val testIntegration = task<Test>("testIntegration") {
+    testLogging.exceptionFormat =  org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+    testLogging.showStackTraces = true
+    testLogging.showExceptions = true
+    testLogging.showCauses = true
+    maxHeapSize = "2G"
+    include("**/*IT.class")
+}
+
+// Travis cannot handle this build, sadly...
+tasks["check"].dependsOn(testIntegration)
