@@ -6,7 +6,7 @@ internal open class WebElementMock(
     private val attributes: Map<String?, String?>
 ) : WebElement {
     override fun isDisplayed(): Boolean {
-        throw Exception("not implemented")
+        return true
     }
 
     override fun clear() {
@@ -50,7 +50,7 @@ internal open class WebElementMock(
     }
 
     override fun isEnabled(): Boolean {
-        throw Exception("not implemented")
+        return true
     }
 
     override fun sendKeys(vararg keysToSend: CharSequence?) {
