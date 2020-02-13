@@ -11,18 +11,31 @@ You can build and run virtual users on MacOS, Windows or Linux. You'll need JDK 
 
 ## Submitting changes
  
-Pull requests, issues and comments are welcome. For pull requests:
+Pull requests, issues and comments are welcome. Below checklist can help you to go smoothly through the review.
+Please remember that common sense applies here. 
 
-  - Add tests for new features and bug fixes
-  - Follow the existing style
-  - Separate unrelated changes into multiple pull requests
-  
+### Pull Request Readiness readiness checklist
+
+  * [ ] Includes tests to exercise the new behavior and bugs.
+  * [ ] Follows the existing style.
+  * [ ] Git commit message is detailed and includes context behind the change.
+  * [ ] If the change is related to an existing Bug Report or Feature Request,
+  the issue number is referenced
+  * [ ] For bigger changes, make sure you start a discussion first by creating 
+  an issue and explaining the intended
+   change.
+
 See the [existing issues](https://ecosystem.atlassian.net/projects/JPERF/issues/?filter=allissues) for things to start contributing.
+
+## Getting Your Pull Request Merged
+
+All Pull Requests must be approved by at least one member of the @atlassian/jpt team
+before it can be merged in.
 
 For bigger changes, make sure you start a discussion first by creating
 an issue and explaining the intended change.
 
-All the pull requests and other changes will be accepted and merged by Atlassians.
+### Legal requirements
 
 Atlassian requires contributors to sign a Contributor License Agreement,
 known as a CLA. This serves as a record stating that the contributor is
