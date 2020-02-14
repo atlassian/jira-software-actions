@@ -30,7 +30,7 @@ dependencies {
     api("com.github.stephenc.jcip:jcip-annotations:1.0-1")
     api(webdriver("selenium-api"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.glassfish:javax.json:1.1")
     implementation(webdriver("selenium-support"))
     implementation(webdriver("selenium-chrome-driver"))
