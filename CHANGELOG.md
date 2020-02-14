@@ -26,11 +26,9 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.2...master
 
-### Changed
-- reduced the overhead of handling large boards and backlogs
-- Upgraded Selenium to 3.141.59
-
 ### Fixed
+- Reduce the overhead of handling large boards and backlogs
+- Upgrade Selenium to 3.141.59
 - Use non-deprecated Kotlin stdlib. Fix [JPERF-466].
 
 [JPERF-466]: https://ecosystem.atlassian.net/browse/JPERF-466
