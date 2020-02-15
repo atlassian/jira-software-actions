@@ -25,7 +25,10 @@ Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.2...master
-
+### Added
+- Native JavaScript Selenium conditions are now available
+### Changed
+- decreased polling frequency
 ### Fixed
 - Reduce the overhead of handling large boards and backlogs
 - Upgrade Selenium to 3.141.59

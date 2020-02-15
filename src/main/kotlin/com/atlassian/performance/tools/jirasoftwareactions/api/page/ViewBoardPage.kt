@@ -12,7 +12,8 @@ class ViewBoardPage(
 ) {
     fun waitForBoard() = driver.wait(
         Duration.ofSeconds(30),
-        presenceOfElementLocated(cssSelector(".ghx-column"))
+        presenceOfElementLocated(cssSelector(".ghx-column")),
+        Duration.ofMillis(100)
     )
 
     fun getIssueKeys(): List<String> {
