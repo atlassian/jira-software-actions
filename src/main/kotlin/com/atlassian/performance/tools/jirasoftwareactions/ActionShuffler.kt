@@ -12,9 +12,10 @@ import com.atlassian.performance.tools.jiraactions.api.memories.JqlMemory
 import com.atlassian.performance.tools.jiraactions.api.page.IssuePage
 import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
+import java.util.function.Predicate
 import kotlin.reflect.KClass
 
-class ActionShuffler {
+internal class ActionShuffler {
     private class FixedJqlMemory(val jql: String) : JqlMemory {
         override fun observe(issuePage: IssuePage) {
             throw UnsupportedOperationException()
@@ -25,6 +26,10 @@ class ActionShuffler {
         }
 
         override fun remember(memories: Collection<String>) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun recallByTag(filter: Predicate<String>): String? {
             throw UnsupportedOperationException()
         }
     }
