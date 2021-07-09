@@ -9,7 +9,7 @@ import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.Adaptiv
 import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveJqlMemory
 import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveProjectMemory
 import com.atlassian.performance.tools.jiraactions.api.scenario.Scenario
-import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
+import com.atlassian.performance.tools.jirasoftwareactions.ActionShuffler
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBacklogAction
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.ViewBoardAction
@@ -45,6 +45,8 @@ class JiraSoftwareScenario : Scenario {
             jqlMemory = jqlMemory,
             issueKeyMemory = issueKeyMemory
         )
+        val findInitialIssues = ActionShuffler.findIssueKeysWithJql(jira, meter, issueKeyMemory)
+
         val viewIssue = ViewIssueAction(
             jira = jira,
             meter = meter,
@@ -97,7 +99,7 @@ class JiraSoftwareScenario : Scenario {
         ) { it.issuesInBacklog != 0 }
         val actionProportions = mapOf(
             createIssue to 5,
-            searchWithJql to 20,
+            searchWithJql to 19,
             viewIssue to 55,
             projectSummary to 5,
             viewDashboard to 10,
@@ -108,8 +110,7 @@ class JiraSoftwareScenario : Scenario {
             viewBacklog to 10,
             browseBoards to 2
         )
-        actionProportions.entries.forEach { scenario.addMultiple(element = it.key, repeats = it.value) }
-        scenario.shuffle(seededRandom.random)
-        return scenario
+
+        return ActionShuffler.createRandomisedScenario(seededRandom, actionProportions, findInitialIssues)
     }
 }
