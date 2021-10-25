@@ -13,7 +13,7 @@ configurations.all {
         failOnVersionConflict()
         eachDependency {
             when (requested.module.toString()) {
-                "commons-codec:commons-codec" -> useVersion("1.10")
+                "commons-codec:commons-codec" -> useVersion("1.11")
                 "org.jetbrains:annotations" -> useVersion("16.0.3")
             }
             when (requested.group) {
