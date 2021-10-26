@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/atlassian/jira-software-actions.svg?branch=master)](https://travis-ci.com/atlassian/jira-software-actions)
+[![CI status](https://github.com/atlassian/jira-actions/workflows/CI/badge.svg)](https://github.com/atlassian/jira-actions/actions?query=branch%3Amaster+workflow%3ACI)
 
 # Jira software coverage
 
