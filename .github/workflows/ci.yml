@@ -17,6 +17,7 @@ jobs:
     strategy:
       matrix:
         jira-version: ["7.2.0", "7.13.0", "8.0.0", "8.5.0", "8.13.0"]
+      fail-fast: false
     env:
       JIRA_SOFTWARE_VERSION: ${{ matrix.jira-version }}
     steps:
