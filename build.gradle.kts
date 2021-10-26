@@ -15,6 +15,9 @@ configurations.all {
             when (requested.module.toString()) {
                 "commons-codec:commons-codec" -> useVersion("1.10")
                 "org.jetbrains:annotations" -> useVersion("16.0.3")
+                "org.testcontainers:testcontainers" -> useVersion("1.15.1")
+                "org.testcontainers:selenium" -> useVersion("1.15.1")
+                "net.java.dev.jna:jna" -> useVersion("5.5.0")
             }
             when (requested.group) {
                 "org.jetbrains.kotlin" -> useVersion(kotlinVersion)
@@ -43,6 +46,7 @@ dependencies {
     testCompile("com.atlassian.performance.tools:docker-infrastructure:0.3.3")
     testCompile("junit:junit:4.12")
     testCompile("org.assertj:assertj-core:3.11.1")
+    testCompile("org.testcontainers:testcontainers:1.15.1")
 }
 
 fun log4j(
