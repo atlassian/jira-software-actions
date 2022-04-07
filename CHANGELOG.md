@@ -26,6 +26,11 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.3...master
 
+### Fixed
+- Bump log4j version to 2.17.2 [JPERF-778]
+
+[JPERT-778]: https://ecosystem.atlassian.net/browse/JPERF-778
+
 ## [1.3.3] - 2020-02-14
 [1.3.3]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.2...release-1.3.3
 

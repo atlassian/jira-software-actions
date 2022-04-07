@@ -1,5 +1,6 @@
 val kotlinVersion = "1.2.70"
 val seleniumVersion = "3.141.59"
+val log4jVersion = "2.17.2"
 
 plugins {
     kotlin("jvm").version("1.2.70")
@@ -23,6 +24,7 @@ configurations.all {
                 "org.jetbrains.kotlin" -> useVersion(kotlinVersion)
                 "org.seleniumhq.selenium" -> useVersion(seleniumVersion)
                 "org.slf4j" -> useVersion("1.7.25")
+                "org.apache.logging.log4j" -> useVersion(log4jVersion)
             }
         }
     }
@@ -52,7 +54,7 @@ dependencies {
 fun log4j(
     vararg modules: String
 ): List<String> = modules.map { module ->
-    "org.apache.logging.log4j:log4j-$module:2.10.0"
+    "org.apache.logging.log4j:log4j-$module:$log4jVersion"
 }
 
 fun webdriver(module: String): String = "org.seleniumhq.selenium:$module:$seleniumVersion"
