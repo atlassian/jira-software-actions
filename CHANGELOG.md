@@ -24,7 +24,12 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.4...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.5...master
+
+## [1.3.5] - 2022-06-23
+[1.3.5]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.4...release-1.3.5
+
+Empty release to test changes in release process.
 
 ## [1.3.4] - 2022-04-08
 [1.3.4]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.3...release-1.3.4
