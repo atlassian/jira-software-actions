@@ -36,15 +36,15 @@ class BrowseBoardsPage(
             return emptyList()
         }
         driver.wait(
-            Duration.ofSeconds(5), 
-            elementToBeClickable(By.cssSelector("#ghx-manage-boards-filter a"))
+            Duration.ofSeconds(5),
+            elementToBeClickable(By.cssSelector("[aria-controls='board-types']"))
         ).click()
 
         driver.wait(
             Duration.ofSeconds(5),
             elementToBeClickable(By.className("type-filter-scrum"))
         ).click()
-        
+
         driver.wait(
             Duration.ofSeconds(15),
             and(
