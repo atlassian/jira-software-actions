@@ -7,11 +7,10 @@ import java.util.*
 
 internal class BrowseBoardsPageMock {
     private val boardsFilter = WebElementMapping(
-        By.cssSelector("#ghx-manage-boards-filter a"),
+        By.cssSelector("[aria-controls='board-types']"),
         listOf(
             object : WebElementMock(emptyMap()) {
-                override fun click() {
-                }
+                override fun click() {}
             }
         )
     )
