@@ -7,6 +7,7 @@ import com.atlassian.performance.tools.jiraactions.api.ActionResult
 import com.atlassian.performance.tools.jiraactions.api.SeededRandom
 import com.atlassian.performance.tools.jiraactions.api.WebJira
 import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
+import com.atlassian.performance.tools.jiraactions.api.measure.DrillDownHook
 import com.atlassian.performance.tools.jiraactions.api.measure.output.CollectionActionMetricOutput
 import com.atlassian.performance.tools.jiraactions.api.memories.User
 import com.atlassian.performance.tools.jiraactions.api.memories.UserMemory
@@ -33,16 +34,15 @@ class JiraSoftwareScenarioIT {
      */
     @Test
     fun shouldRunScenarioWithoutErrors() {
-        val version = System.getenv("JIRA_SOFTWARE_VERSION") ?: "8.5.3"
+        val version = System.getenv("JIRA_SOFTWARE_VERSION") ?: "8.20.13"
         logger.info("Testing Jira $version")
         val scenario = JiraSoftwareScenario()
         val metrics = mutableListOf<ActionMetric>()
-        val actionMeter = ActionMeter(
-            virtualUser = UUID.randomUUID(),
-            output = CollectionActionMetricOutput(metrics),
-            clock = Clock.systemUTC(),
-            w3cPerformanceTimeline = DisabledW3cPerformanceTimeline()
-        )
+        val actionMeter = ActionMeter.Builder(output = CollectionActionMetricOutput(metrics))
+            .virtualUser(UUID.randomUUID())
+            .clock(Clock.systemUTC())
+            .appendPostMetricHook(DrillDownHook(DisabledW3cPerformanceTimeline()))
+            .build()
         val user = User("admin", "admin")
         val userMemory = object : UserMemory {
             override fun recall(): User {
