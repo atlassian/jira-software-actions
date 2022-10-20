@@ -30,7 +30,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [1.3.6]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.5...release-1.3.6
 
 ### Fixed
-- Fix browse boards selector [JPERF-836]
+- Fix browsing boards on Jira 9.3.0: page object and VU action. Fix [JPERF-836].
 
 [JPERF-836]: https://ecosystem.atlassian.net/browse/JPERF-836
 
