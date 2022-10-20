@@ -32,9 +32,6 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ### Fixed
 - Fix browse boards selector [JPERF-836]
 
-### Changed
-- Add newer Jira versions to run at CI [JPERF-836]
-
 [JPERF-836]: https://ecosystem.atlassian.net/browse/JPERF-836
 
 ## [1.3.5] - 2022-06-23
