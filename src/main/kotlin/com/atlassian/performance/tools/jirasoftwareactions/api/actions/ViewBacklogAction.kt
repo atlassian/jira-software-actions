@@ -12,6 +12,7 @@ import com.atlassian.performance.tools.jirasoftwareactions.api.memories.BoardMem
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
+@Deprecated("Use WorkOnBacklog instead")
 class ViewBacklogAction(
     private val jiraSoftware: WebJiraSoftware,
     private val meter: ActionMeter,
