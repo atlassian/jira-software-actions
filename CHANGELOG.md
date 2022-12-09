@@ -24,13 +24,17 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.6...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...master
+
+## [1.4.0] - 2022-12-15
+[1.4.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.6...release-1.4.0
 
 ### Added
 - New action `WorkOnBacklog` that visits the backlog and has a chance to edit an existing sprint by changing its name. Resolve [JPERF-873].
 
 ### Deprecated
 - Deprecate `ViewBacklogAction` in favor of `WorkOnBacklog`
+
 ## [1.3.6] - 2022-10-19
 [1.3.6]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.5...release-1.3.6
 
