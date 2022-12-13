@@ -1,3 +1,5 @@
+gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS
+
 val kotlinVersion = "1.2.70"
 val seleniumVersion = "3.141.59"
 val log4jVersion = "2.17.2"
