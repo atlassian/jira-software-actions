@@ -24,7 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...master
+
+## [1.4.1] - 2022-12-15
+[1.4.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...1.4.1
 
 ### Fixed
 - Fix flakiness of `WorkOnBacklog` action caused by AUI Flag obscuring edit sprint button. Resolve [JPERF-903]
