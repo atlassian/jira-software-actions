@@ -47,6 +47,7 @@ class WorkOnBacklog private constructor(
     }
 
     private fun editSprint(backlog: ViewBacklogPage) {
+        backlog.closePopups()
         val sprint = backlog.listSprints().firstOrNull()
         if (sprint != null) {
             meter.measure(

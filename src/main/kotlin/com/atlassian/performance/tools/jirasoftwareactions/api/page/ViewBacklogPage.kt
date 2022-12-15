@@ -1,6 +1,7 @@
 package com.atlassian.performance.tools.jirasoftwareactions.api.page
 
 import com.atlassian.performance.tools.jiraactions.api.page.wait
+import com.atlassian.performance.tools.jiraactions.api.page.NotificationPopUps
 import com.atlassian.performance.tools.jirasoftwareactions.webdriver.JavaScriptUtils
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -13,6 +14,7 @@ class ViewBacklogPage(
     private val driver: WebDriver
 ) {
     private val sprintsLocator = By.cssSelector(".ghx-sprint-group .ghx-backlog-container")
+    private val popUps = NotificationPopUps(driver)
 
     fun waitForBacklog(): WebElement? {
         return driver.wait(
@@ -37,5 +39,9 @@ class ViewBacklogPage(
             Duration.ofSeconds(30),
             textToBePresentInElementLocated(By.cssSelector(".ghx-backlog-container .ghx-name"), expectedSprintName)
         )
+    }
+
+    fun closePopups() {
+        popUps.waitUntilAuiFlagsAreGone()
     }
 }

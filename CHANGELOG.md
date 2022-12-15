@@ -26,6 +26,9 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...master
 
+### Fixed
+- Fix flakiness of `WorkOnBacklog` action caused by AUI Flag obscuring edit sprint button. Resolve [JPERF-903]
+
 ## [1.4.0] - 2022-12-15
 [1.4.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.3.6...release-1.4.0
 
