@@ -26,6 +26,9 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...master
 
+### Fixed
+- Set the sprint name used for editing sprint to a random value. Resolve [JPERF-906]
+
 ## [1.4.1] - 2022-12-15
 [1.4.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...1.4.1
 
