@@ -31,7 +31,7 @@ class WorkOnBacklog private constructor(
     }
 
     private val logger: Logger = LogManager.getLogger(this::class.java)
-    private val newSprintName = "New Sprint Name"
+    private val newSprintName = "Sprint Name - " + System.nanoTime()
 
     override fun run() {
         val board = boardMemory.recall { filter.test(it) }
