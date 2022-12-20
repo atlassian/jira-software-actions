@@ -24,7 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.2...master
+
+## [1.4.2] - 2022-12-20
+[1.4.2]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...1.4.2
 
 ### Fixed
 - Set the sprint name used for editing sprint to a random value. Resolve [JPERF-906]
