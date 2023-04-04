@@ -4,10 +4,7 @@ import com.atlassian.performance.tools.jiraactions.api.SeededRandom
 import com.atlassian.performance.tools.jiraactions.api.WebJira
 import com.atlassian.performance.tools.jiraactions.api.action.*
 import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
-import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveIssueKeyMemory
-import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveIssueMemory
-import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveJqlMemory
-import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveProjectMemory
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.*
 import com.atlassian.performance.tools.jiraactions.api.scenario.Scenario
 import com.atlassian.performance.tools.jiraactions.api.scenario.addMultiple
 import com.atlassian.performance.tools.jirasoftwareactions.api.actions.BrowseBoardsAction
@@ -33,6 +30,7 @@ class JiraSoftwareScenario : Scenario {
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
         val agileBoardMemory = AdaptiveBoardMemory<AgileBoard>(seededRandom)
         val scrumBoardMemory = AdaptiveBoardMemory<ScrumBoard>(seededRandom)
+        val commentMemory = AdaptiveCommentMemory(seededRandom)
         val scenario: MutableList<Action> = mutableListOf()
         val createIssue = CreateIssueAction(
             jira = jira,
@@ -89,6 +87,17 @@ class JiraSoftwareScenario : Scenario {
             boardsMemory = agileBoardMemory,
             scrumBoardsMemory = scrumBoardMemory
         )
+        val viewComment = ViewCommentAction(
+            jira = jira,
+            meter = meter,
+            commentMemory = commentMemory
+        )
+        val viewHistoryTabAction = ViewHistoryTabAction(
+            jira = jira,
+            meter = meter,
+            issueKeyMemory = issueKeyMemory
+        )
+
         val workOnBacklog = WorkOnBacklog.Builder(jiraSoftware, meter)
             .seededRandom(seededRandom)
             .boardMemory(scrumBoardMemory)
@@ -104,7 +113,9 @@ class JiraSoftwareScenario : Scenario {
             browseProjects to 5,
             viewBoard to 10,
             workOnBacklog to 10,
-            browseBoards to 2
+            browseBoards to 2,
+            viewComment to 2,
+            viewHistoryTabAction to 2
         )
         actionProportions.entries.forEach { scenario.addMultiple(element = it.key, repeats = it.value) }
         scenario.shuffle(seededRandom.random)
