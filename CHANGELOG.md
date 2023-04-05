@@ -24,7 +24,10 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.2...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.3...master
+
+## [1.4.3] - 2023-04-05
+[1.4.3]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.2...release-1.4.3
 
 ### Fixed
 - Include `ViewHistoryTabAction` and `ViewCommentAction` in `JiraSoftwareScenario`. Resolve [JPERF-813]
@@ -32,7 +35,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [JPERF-813]: https://ecosystem.atlassian.net/browse/JPERF-813
 
 ## [1.4.2] - 2022-12-20
-[1.4.2]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...1.4.2
+[1.4.2]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...release-1.4.2
 
 ### Fixed
 - Set the sprint name used for editing sprint to a random value. Resolve [JPERF-906]
@@ -40,7 +43,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [JPERF-906]: https://ecosystem.atlassian.net/browse/JPERF-906
 
 ## [1.4.1] - 2022-12-15
-[1.4.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...1.4.1
+[1.4.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...release-1.4.1
 
 ### Fixed
 - Fix flakiness of `WorkOnBacklog` action caused by AUI Flag obscuring edit sprint button. Resolve [JPERF-903]
