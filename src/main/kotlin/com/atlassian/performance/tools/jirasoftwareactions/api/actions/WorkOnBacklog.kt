@@ -103,6 +103,10 @@ class WorkOnBacklog private constructor(
         fun seededRandom(seededRandom: SeededRandom) = apply { this.seededRandom = seededRandom }
         fun filter(filter: Predicate<ScrumBoard>) = apply { this.filter = filter }
         fun boardMemory(boardMemory: BoardMemory<ScrumBoard>) = apply { this.boardMemory = boardMemory }
+
+        /**
+         * @since 1.5.0
+         */
         fun issueKeyMemory(issueKeyMemory: IssueKeyMemory) = apply { this.issueKeyMemory = issueKeyMemory }
 
         fun build() = WorkOnBacklog(
