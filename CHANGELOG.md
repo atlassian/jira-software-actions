@@ -26,6 +26,9 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.3...master
 
+### Added
+- Fill in an `IssueKeyMemory` in `WorkOnBacklog`.
+
 ## [1.4.3] - 2023-04-05
 [1.4.3]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.2...release-1.4.3
 
