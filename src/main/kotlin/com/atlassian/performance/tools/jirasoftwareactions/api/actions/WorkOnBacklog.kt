@@ -4,6 +4,8 @@ import com.atlassian.performance.tools.jiraactions.api.ActionType
 import com.atlassian.performance.tools.jiraactions.api.SeededRandom
 import com.atlassian.performance.tools.jiraactions.api.action.Action
 import com.atlassian.performance.tools.jiraactions.api.measure.ActionMeter
+import com.atlassian.performance.tools.jiraactions.api.memories.IssueKeyMemory
+import com.atlassian.performance.tools.jiraactions.api.memories.adaptive.AdaptiveIssueKeyMemory
 import com.atlassian.performance.tools.jiraactions.api.observation.IssuesOnBoard
 import com.atlassian.performance.tools.jirasoftwareactions.api.WebJiraSoftware
 import com.atlassian.performance.tools.jirasoftwareactions.api.boards.ScrumBoard
@@ -20,7 +22,8 @@ class WorkOnBacklog private constructor(
     private val seededRandom: SeededRandom,
     private val jiraSoftware: WebJiraSoftware,
     private val filter: Predicate<ScrumBoard>,
-    private val boardMemory: BoardMemory<ScrumBoard>
+    private val boardMemory: BoardMemory<ScrumBoard>,
+    private val issueKeyMemory: IssueKeyMemory
 ) : Action {
     companion object {
         @JvmField
@@ -73,6 +76,7 @@ class WorkOnBacklog private constructor(
             },
             observation = { backlogBoard ->
                 val issueKeys = backlogBoard.getIssueKeys()
+                issueKeyMemory.remember(issueKeys)
                 board.issuesInBacklog = issueKeys.size
                 IssuesOnBoard(issues = issueKeys.size).serialize()
             }
@@ -91,6 +95,7 @@ class WorkOnBacklog private constructor(
         private var seededRandom: SeededRandom = SeededRandom(123)
         private var filter: Predicate<ScrumBoard> = Predicate { it.issuesInBacklog != 0 }
         private var boardMemory: BoardMemory<ScrumBoard> = AdaptiveBoardMemory(seededRandom)
+        private var issueKeyMemory: IssueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
 
         fun jiraSoftware(jiraSoftware: WebJiraSoftware) = apply { this.jiraSoftware = jiraSoftware }
         fun meter(meter: ActionMeter) = apply { this.meter = meter }
@@ -98,6 +103,7 @@ class WorkOnBacklog private constructor(
         fun seededRandom(seededRandom: SeededRandom) = apply { this.seededRandom = seededRandom }
         fun filter(filter: Predicate<ScrumBoard>) = apply { this.filter = filter }
         fun boardMemory(boardMemory: BoardMemory<ScrumBoard>) = apply { this.boardMemory = boardMemory }
+        fun issueKeyMemory(issueKeyMemory: IssueKeyMemory) = apply { this.issueKeyMemory = issueKeyMemory }
 
         fun build() = WorkOnBacklog(
             jiraSoftware = jiraSoftware,
@@ -105,7 +111,8 @@ class WorkOnBacklog private constructor(
             editSprintChance = editSprintChance,
             seededRandom = seededRandom,
             filter = filter,
-            boardMemory = boardMemory
+            boardMemory = boardMemory,
+            issueKeyMemory = issueKeyMemory
         )
     }
 }
