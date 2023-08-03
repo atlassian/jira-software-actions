@@ -24,10 +24,13 @@ Adding a requirement of a major version of a dependency is breaking a contract.
 Dropping a requirement of a major version of a dependency is a new contract.
 
 ## [Unreleased]
-[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.5.0...master
+[Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.5.1...master
+
+## [1.5.1] - 2023-08-03
+[1.5.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.5.0...release-1.5.1
 
 ### Fixed
-- In `JiraSofwtareScenario` add 3 first visited projects to JQL memory. Mitigate [JPERF-573].
+- In `JiraSoftwareScenario` add 3 first visited projects to JQL memory. Mitigate [JPERF-573].
 
 [JPERF-573]: https://ecosystem.atlassian.net/browse/JPERF-573
 
