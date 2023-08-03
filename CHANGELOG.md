@@ -26,6 +26,11 @@ Dropping a requirement of a major version of a dependency is a new contract.
 ## [Unreleased]
 [Unreleased]: https://github.com/atlassian/jira-software-actions/compare/release-1.5.0...master
 
+### Fixed
+- In `JiraSofwtareScenario` add 3 first visited projects to JQL memory. Mitigate [JPERF-573].
+
+[JPERF-573]: https://ecosystem.atlassian.net/browse/JPERF-573
+
 ## [1.5.0] - 2023-07-07
 [1.5.0]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.3...release-1.5.0
 
@@ -36,7 +41,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [1.4.3]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.2...release-1.4.3
 
 ### Fixed
-- Include `ViewHistoryTabAction` and `ViewCommentAction` in `JiraSoftwareScenario`. Resolve [JPERF-813]
+- Include `ViewHistoryTabAction` and `ViewCommentAction` in `JiraSoftwareScenario`. Resolve [JPERF-813].
 
 [JPERF-813]: https://ecosystem.atlassian.net/browse/JPERF-813
 
@@ -44,7 +49,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [1.4.2]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.1...release-1.4.2
 
 ### Fixed
-- Set the sprint name used for editing sprint to a random value. Resolve [JPERF-906]
+- Set the sprint name used for editing sprint to a random value. Resolve [JPERF-906].
 
 [JPERF-906]: https://ecosystem.atlassian.net/browse/JPERF-906
 
@@ -52,7 +57,7 @@ Dropping a requirement of a major version of a dependency is a new contract.
 [1.4.1]: https://github.com/atlassian/jira-software-actions/compare/release-1.4.0...release-1.4.1
 
 ### Fixed
-- Fix flakiness of `WorkOnBacklog` action caused by AUI Flag obscuring edit sprint button. Resolve [JPERF-903]
+- Fix flakiness of `WorkOnBacklog` action caused by AUI Flag obscuring edit sprint button. Resolve [JPERF-903].
 
 [JPERF-903]: https://ecosystem.atlassian.net/browse/JPERF-903
 
@@ -119,7 +124,7 @@ Empty release to test changes in release process.
 
 ### Added
 - Let virtual users use their own filter predicates instead of the built-in `isWorthVisiting` method
-- Make the module `jira-actions` 3.x compatibile. Unlocks [JPERF-127] and [JPERF-150]
+- Make the module `jira-actions` 3.x compatibile. Unlocks [JPERF-127] and [JPERF-150].
 
 [JPERF-127]: https://ecosystem.atlassian.net/browse/JPERF-127
 [JPERF-150]: https://ecosystem.atlassian.net/browse/JPERF-150

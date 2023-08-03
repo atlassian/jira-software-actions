@@ -24,8 +24,16 @@ class JiraSoftwareScenario : Scenario {
         seededRandom: SeededRandom,
         meter: ActionMeter
     ): List<Action> {
-        val projectMemory = AdaptiveProjectMemory(random = seededRandom)
         val jqlMemory = AdaptiveJqlMemory(seededRandom)
+        val projectMemory = JqlRememberingProjectMemory
+            .Builder(
+                delegate = AdaptiveProjectMemory(random = seededRandom),
+                jqlMemory = LimitedJqlMemory(
+                    delegate = jqlMemory,
+                    limit = 3
+                )
+            )
+            .build()
         val issueKeyMemory = AdaptiveIssueKeyMemory(seededRandom)
         val issueMemory = AdaptiveIssueMemory(issueKeyMemory, seededRandom)
         val agileBoardMemory = AdaptiveBoardMemory<AgileBoard>(seededRandom)
